@@ -25,29 +25,38 @@ class Home {
     const info = await fetch('/getData/' + query);
     const predictions = await info.json();
     console.log(predictions);
-    if (predictions.status != "OK") {
+
+    if (predictions.results.length < 1) {
       const field = document.querySelector('input.inputIt');
       field.value = "";
       field.placeholder = "No location found, please try again.";
     }
     else {
-      const firstResult = predictions.predictions[0];
+      const firstResult = predictions.results[0]; //maybe add functionality to this
       const placeId = firstResult.place_id;
-      const placeName = firstResult.description;
-      const photoReference = firstResult.reference;
+      const placeName = firstResult.name;
+      const photoReference = firstResult.photos[0];
+      const query = photoReference.photo_reference;
+
+      const maxWidth = document.body.offsetWidth;
+      const getPhoto = await fetch('/getPhotos/' + query + '/' + maxWidth); //returns a photo
+      const thePhoto = await getPhoto.json();
+      const myPhoto = thePhoto.photoUrl;
+      console.log(thePhoto);
 
       const information = {
         id: placeId,
         name: placeName,
-        photoArray: photoReference //to change this once i query the pictures
+        photo: myPhoto //to change this once i query the picture
       };
       document.dispatchEvent(new CustomEvent('goToResults', {detail: information}));
       //send a custom event sendInfo
-      //send another request to get photo
 
-      // console.log(this.placeId);
-      // console.log(this.placeName);
-      // console.log(this.photoReference);
+      console.log(placeId);
+      console.log(placeName);
+      console.log(photoReference);
+      console.log(query);
+      console.log(getPhoto);
     }
 
     //if it isn't a place, then show error message

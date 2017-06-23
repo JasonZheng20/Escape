@@ -13,6 +13,6 @@ class Result {
   show(info) {
     this.resultScreen.classList.remove("inactive");
     this.resultScreen.querySelector(".locationTitle").textContent = info.name;
-    
+    this.resultScreen.querySelector(".picHalf").style.backgroundImage = "url('" + info.photo + "')";
   }
 }
