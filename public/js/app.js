@@ -8,10 +8,13 @@ class App {
     this.result.hide();
 
     this.goToResult = this.goToResult.bind(this);
+
+    document.addEventListener('goToResults', this.goToResult);
   }
 
-  goToResult() {
+  goToResult(event) {
     this.home.hide();
-    this.result.show();
+    const info = event.detail;
+    this.result.show(info);
   }
 }

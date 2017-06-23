@@ -10,7 +10,9 @@ class Result {
     this.resultScreen.classList.add("inactive");
   }
 
-  show() {
+  show(info) {
     this.resultScreen.classList.remove("inactive");
+    this.resultScreen.querySelector(".locationTitle").textContent = info.name;
+    
   }
 }
