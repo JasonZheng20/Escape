@@ -35,15 +35,12 @@ class Home {
       const firstResult = predictions.results[0]; //maybe add functionality to this
       const placeId = firstResult.place_id;
       const placeName = firstResult.name;
-      const photoReference = firstResult.photos[0];
-      console.log(photoReference);
+      const photoReference = firstResult.photos[0]; //need to do something if no photos
       const query = photoReference.photo_reference;
       const maxWidth = document.body.offsetWidth;
       const getPhoto = await fetch('/getPhotos/' + query + '/' + maxWidth); //returns a photo
       const thePhoto = await getPhoto.json();
       const myPhoto = thePhoto.photoUrl;
-      console.log(thePhoto);
-
       const information = {
         id: placeId,
         name: placeName,
@@ -51,14 +48,5 @@ class Home {
       };
       document.dispatchEvent(new CustomEvent('goToResults', {detail: information}));
     }
-
-    //if it isn't a place, then show error message
-    //if it is a place then yeet
-      //0. if multiple, create a list
-      //1. type out the name
-      //2. get photos
-      //3. get description
-      //4. get weather
-      //5. get nearby landmarks
   }
 }
