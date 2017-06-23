@@ -36,8 +36,8 @@ class Home {
       const placeId = firstResult.place_id;
       const placeName = firstResult.name;
       const photoReference = firstResult.photos[0];
+      console.log(photoReference);
       const query = photoReference.photo_reference;
-
       const maxWidth = document.body.offsetWidth;
       const getPhoto = await fetch('/getPhotos/' + query + '/' + maxWidth); //returns a photo
       const thePhoto = await getPhoto.json();
@@ -50,13 +50,6 @@ class Home {
         photo: myPhoto //to change this once i query the picture
       };
       document.dispatchEvent(new CustomEvent('goToResults', {detail: information}));
-      //send a custom event sendInfo
-
-      console.log(placeId);
-      console.log(placeName);
-      console.log(photoReference);
-      console.log(query);
-      console.log(getPhoto);
     }
 
     //if it isn't a place, then show error message
