@@ -1,5 +1,6 @@
 class App {
   constructor() {
+    // console.log("constructed app");
     const homeScreen = document.querySelector(".homePage");
     this.home = new Home(homeScreen);
 

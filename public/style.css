@@ -13,6 +13,10 @@ form {
   align-items: center;
 }
 
+.inactive {
+  display: none !important;
+}
+
 #picHalf {
   background-color: #003996;
 }
