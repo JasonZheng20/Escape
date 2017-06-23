@@ -1,0 +1,78 @@
+body {
+  margin: 0px;
+  font-family: 'Archivo Black', sans-serif;
+  background-color: #fcfcfc;
+}
+
+.topBar {
+  margin-left: 50px;
+  display: flex;
+  align-items: center;
+  height: 30vh;
+}
+
+.locationTitle {
+  margin: 10px 30px;
+  color: #fcfcfc;
+  font-size: 48px;
+  margin-top: 0px;
+}
+
+.backButton {
+  height: 100px;
+  width: 100px;
+  background-color: #ffffff;
+}
+
+.eventsPage {
+  background-color: #212121;
+  height: 100vh;
+}
+
+.gallery {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 40vh;
+  background-color: #4f4f4f;
+}
+
+.container {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+}
+
+.title {
+  font-size: 85px;
+  letter-spacing: 3px;
+  color: #003996;
+  margin: 0px;
+  position: relative;
+}
+
+form {
+  margin: 12px;
+  width: 50vw;
+  height: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inputIt {
+  background: transparent;
+  padding: 0px;
+  border: 0px;
+  border-bottom: 2px solid black;
+  margin: 5px;
+  width: 40vw;
+  text-align: center;
+  font-size: 28px;
+}
+
+.inputIt:focus {
+    outline: 0 !important;
+}
