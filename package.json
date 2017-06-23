@@ -1,0 +1,19 @@
+{
+  "name": "Escape",
+  "version": "1.0.0",
+  "description": "Practice with 3rd party APIs",
+  "main": "server.js",
+  "engines": {
+    "node": "7x"
+  },
+  "dependencies": {
+    "express": "^4.15.2",
+    "node-fetch": "^1.7.1"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "CS193X Student",
+  "license": "MIT"
+}

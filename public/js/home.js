@@ -21,16 +21,23 @@ class Home {
   }
 
   onResponse(response) {
+    console.log(response);
     return response.json();
   }
 
-  fetch(event) {
+  async fetch(event) {
     event.preventDefault();
     const inputString = document.querySelector('input.inputIt').value;
     const query = encodeURIComponent(inputString);
-    const key = 'AIzaSyA54jCXmz_gm0MQ2SaYvkqWx04WaE7dWVI';
-    fetch('https://maps.googleapis.com/maps/api/place/autocomplete/json?input=' + query + '&language=en&types=(cities)&key=' + key).then(this.onResponse).then(this.sendInfo);
-    console.log(inputString);
+
+    const info = await fetch('/getData/' + query);
+    const predictions = await info.json();
+    console.log(predictions);
+    // fetch('https://maps.googleapis.com/maps/api/place/autocomplete/json?input=' + query + '&language=en&types=(cities)&key=' + key).then(this.onResponse).then(this.sendInfo);
+
+    //i need to do this in my backEnd
+
+    // console.log(inputString);
     //if it isn't a place, then show error message
     //if it is a place then yeet
   }
