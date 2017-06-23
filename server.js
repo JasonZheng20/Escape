@@ -24,9 +24,9 @@ async function onGet(req, res) {
   const routeParams = req.params;
   const queryRoute = routeParams.query;
 
-  const predictions = fetch('https://maps.googleapis.com/maps/api/place/autocomplete/json?input=' + queryRoute + '&language=en&types=(cities)&key=' + key);
-  const predicObj = await predictions.json;
-  console.log(predictions);
+  const predictions = await fetch('https://maps.googleapis.com/maps/api/place/autocomplete/json?input=' + queryRoute + '&language=en&types=(cities)&key=' + key);
+
+  const predicObj = await predictions.json();
   console.log(predicObj);
   // const predicObj = [queryRoute];
 
