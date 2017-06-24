@@ -18,14 +18,21 @@ async function getLocationData(req, res) {
 app.get('/getData/:query', getLocationData);
 
 async function getPhotoData(req, res) {
-  console.log('ran photo fetch func');
   const queryRoute = req.params.query;
   const maxWidth = req.params.maxWidth;
   const photo = 'https://maps.googleapis.com/maps/api/place/photo?maxwidth=' + maxWidth + '&photoreference=' + queryRoute + '&key=' + key;
-  console.log(photo);
   res.json({photoUrl: photo});
 }
 app.get('/getPhotos/:query/:maxWidth', getPhotoData);
+
+async function getWikiData(req, res) { //&list=geosearch
+  const queryRoute = req.params.query;
+  const wikiArticle = await fetch('https://en.wikipedia.org/w/api.php?action=query&format=json&prop=extracts&exsentences=2&explaintext&titles=' + queryRoute);
+  const wikiObj = await wikiArticle.json();
+  console.log(wikiObj);
+  res.json(wikiObj);
+}
+app.get('/getWiki/:query', getWikiData);
 
 //------------------------------------------------------------------port binding
 

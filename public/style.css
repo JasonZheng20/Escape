@@ -19,7 +19,7 @@ form {
 
 .picHalf {
   height: 100vh;
-  width: 50%;
+  width: 75%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -31,8 +31,8 @@ form {
 
 .descrHalf {
   position: absolute;
-  left: 50%;
-  width: 48%;
+  left: 75%;
+  width: 23%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -53,11 +53,21 @@ form {
   font-size: 64px;
   margin-top: 0px;
   width: 100%;
+  height: 100px;
   text-align: center;
-  background-color: rgba(33,33,33,0.5);
+  background-color: rgba(33,33,33,0.75);
   position: fixed;
   top: 4vh;
-  /*left: 3vw;*/
+}
+
+#under {
+  margin: 15px 30px;
+  background-color: rgba(33,33,33,0.5);
+  font-size: 28px;
+  position: fixed;
+  top: 15vh;
+  text-align: center;
+  width: 100%;
 }
 
 .backButton {
